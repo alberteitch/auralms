@@ -85,6 +85,8 @@ Route::get('history/{id}','Checkouts@historyall')->name('history');
 
 Route::group(['middleware' => 'admin'], function () {
 
+
+
 Route::get('home', function () {
 
     return view('dashboard.index');
@@ -94,6 +96,11 @@ Route::get('home', function () {
 Route::get('/', function () {
     return view('dashboard.index');
 });
+
+Route::get('report/books','Reports@books');
+Route::get('report/members','Reports@members');
+
+
 
 Route::get('101', function () {
     return view('login');
