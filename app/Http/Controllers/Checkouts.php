@@ -128,10 +128,23 @@ class Checkouts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        DB::table('checkouts')->where('id', $id)->update(['toggle'=>true,'returned' => date_create(date("Y-m-d "))]);
+    public function update(Request $request, $id,$uid,$pty)
+    {   
+
+
+         //echo $id."|",$uid.'|'.$pty;
+        //DB::table('checkouts')->where('id', $id)->update(['toggle'=>true,'returned' => date_create(date("Y-m-d "))]);
+       // return redirect()->route('borrow.back')->with('success','Return successful');
+   
+//////////////////////
+        $curr=DB::table('users')->where('id','=',$uid)->pluck('dues');
+        $neww=$pty+$curr;
+        DB::table('users')->where('id', $uid)->update(['dues'=>$neww,'updated_at' => date_create(date("Y-m-d "))]);
+        DB::table('checkouts')->where('id', $id)->update(['dues'=>$pty,'toggle'=>true,'returned' => date_create(date("Y-m-d "))]);
         return redirect()->route('borrow.back')->with('success','Return successful');
+
+
+
     }
 
     /**

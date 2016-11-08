@@ -72,6 +72,7 @@ Route::any('borrow','Checkouts@borrowed')->name('borrow.back');
 Route::any('borrowed/{id}','Checkouts@borrowed');
 Route::resource('borrowed','Checkouts');
 Route::any('return/{id}','Checkouts@update');
+Route::any('return/{id}/{uid}/{pty}','Checkouts@update');
 Route::any('get/{id}','Checkouts@get')->name('getit');
 
 Route::get('history/all','Checkouts@historyall')->name('history.all');

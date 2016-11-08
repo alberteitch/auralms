@@ -103,11 +103,27 @@
                                     <tr>
                                     <td class="action_col" style="text-align:center;">
                                     <style>.btn-xs{margin:3px 0px !important;}</style>
+                                    <?php
+                            $date1=date_create($item->checked_out);
+                            $date2=date_create(date("Y-m-d "));
+                            $diff=date_diff($date1,$date2);
+                             $diffs = $diff->format("%a");
+                               $th=DB::table('settings')->where('id','=',1)->pluck('threshold');
+                                    $pn=DB::table('settings')->where('id','=',1)->pluck('penalty');
 
+                                    if($th<$diffs){
 
+                                        $dmulti=$diffs-$th;
+                                        $penalty=$dmulti*$pn;
+                                    } 
+                                    else{
+
+                                        $penalty=0.00;
+
+                                    }
                                   
-                                  
-                                    <a href="{{ URL::Asset('return')}}/{{$item->id}}">{!!Form::button('Return',array('class'=>'btn btn-xs btn-danger'))!!}</a>
+                                   ?>
+                                    <a href="{{ URL::Asset('return')}}/{{$item->id}}/{{$item->user}}/{{$penalty}}">{!!Form::button('Return',array('class'=>'btn btn-xs btn-danger'))!!}</a>
 
                                     
                                
@@ -136,25 +152,10 @@
 
                                     <td>
                                         <?php
-                            $date1=date_create($item->checked_out);
-                            $date2=date_create(date("Y-m-d "));
-                            $diff=date_diff($date1,$date2);
-                             $diffs = $diff->format("%a");
+
                              echo $diffs.' days';
 
-                                     $th=DB::table('settings')->where('id','=',1)->pluck('threshold');
-                                    $pn=DB::table('settings')->where('id','=',1)->pluck('penalty');
-
-                                    if($th<$diffs){
-
-                                        $dmulti=$diffs-$th;
-                                        $penalty=$dmulti*$pn;
-                                    } 
-                                    else{
-
-                                        $penalty=0.00;
-
-                                    }?>
+?>
 
                                     </td><td>
                                     <?php
