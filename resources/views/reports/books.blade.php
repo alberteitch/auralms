@@ -1,4 +1,4 @@
-@extends('portal.portal_master')
+@extends('master.dm_lite')
 
 @section('page_content') 
 <?php $loc="books"; $count=DB::table('books')->orderby('id','DESC')->count(); $books=DB::table('books')->orderby('id','DESC'); ?>         
@@ -99,7 +99,7 @@
                                     
                                     </tr>
                                    <?php $tpen=0; ?>
-                            @foreach($books as $item)
+                            @foreach($glob as $item)
                                     
                                     <tr>
                                     <td class="action_col" style="text-align:center;">

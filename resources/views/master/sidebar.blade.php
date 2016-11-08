@@ -12,7 +12,7 @@
                     <li @if($loc==='Users') class="active" @endif>
                         <a href="{{ URL::Asset('users')}}"><i class="glyphicon glyphicon-user"></i> Members</a>
                     </li>
-                    <li @if($loc==='Reports') class="active" @endif style="">
+                    <li @if($loc==='Reports') class="active" @endif style="display:none;">
                         <a href="{{ URL::Asset('reports')}}"><i class="glyphicon glyphicon-signal"></i> Reports</a>
                     </li>
                     <li @if($loc==='Portal') class="active" @endif >

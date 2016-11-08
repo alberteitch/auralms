@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\book as mBook;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -11,17 +11,16 @@ use Illuminate\Support\Facades\DB;
 class Reports extends Controller
 {
 
-    public function books(){
+    public function books(Request $request ){
 
-        $raw=DB::table('books')->orderby('id','DESC');
-        $count=DB::table('books')->count();
+    $maxpage=7;
+     $books=mBook::orderBy('id','desc')->paginate($maxpage);
+     $count=mBook::count();
         $data=array(
-            'glob'  => $raw,
-            'count' => $count,
-            'loc'   => 'Report:Books'
+        'books' => $books,
+        'count' => $count
         );
-
-       return view('reports.books',$data);
+    return view('books.index',$data)->with('i', ($request->input('page', 1) - 1) * $maxpage);
     }
 
 
