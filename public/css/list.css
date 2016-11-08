@@ -1,0 +1,111 @@
+                     .listtable{
+                                width:100%;
+                                font-weight:400;
+
+                                }
+                            .listtable td{
+                                border-bottom:thin solid #624871;
+                                padding:10px;
+                                }
+                            .listtable tr:hover{
+                                background:#ddd;
+                               
+                                }
+                            .toprow{
+                                color:#fff;
+                                background: #624871;
+                                }
+                            .toprow:hover{
+                                color:#fff;
+                                background: #624871 !important;
+                                }
+                            .action_col{
+                                border-right:thin dotted #606060;
+                            }
+                            .action_col a{
+                                font-weight:400;
+                                color:#222;
+                            }
+                           .action_col a:hover{
+                                font-weight:400;
+                                color:#444 !important;
+                            }
+                            .listlbl{
+                                padding-right:20px !important;
+                                font-weight:400;
+                                width:200px !important;
+                                padding-left:10px !important;
+                            }
+                            .detcon{
+                                padding:10px ;
+                                font-size:20px;
+                            }
+                            .detcon td{
+                                
+                                
+                            }
+
+                            .tabbed{
+                                min-width: 100px !important;
+                                max-width:400px !important;
+                            }
+                            .odd{background:#efefef;}
+                            .even{}
+                            .bbut{
+                                padding-top:20px !important;
+                            }
+                            .bbut .btn{
+                                margin-bottom:5px !important;
+                            }
+                            .pagination{
+                                margin-top:0px !important;
+                                color:#333 !important;
+                            }
+                            .pagination>li>a, .pagination>li>span{
+                                color:#333 ;
+                            }
+
+                            .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover 
+                            {
+                                    background-color: #4e4e4e !important;
+                                     border-color: #4e4e4e !important;
+                            }
+                            input[type="email"]{text-transform:lowercase ; font-size:16px !important;}
+                            input[type="text"],textarea,select{text-transform:uppercase ; font-size:16px !important;}
+                            input[type="text"],input[type="email"]{width: 200px !important;}
+                            
+                            @media screen and (max-width: 825px){
+                          .cd,.ud,.des{
+                                display:none;
+                                width: 0px !important;
+                                height:0px !important;
+                            }
+                            }
+                            @media screen and (max-width: 525px){
+                            .listtable{
+                                font-weight:600;
+                                font-size:8.5px !important;
+
+                                
+
+                                }
+                             .detcon td{
+
+                                font-size:14px !important;
+                              
+                            }
+                            input[type="email"]{text-transform:lowercase ; font-size:14px !important;width:90%;}
+                            input[type="text"],textarea,select{text-transform:uppercase ; font-size:14px !important;width:90%;}
+                            input[type="text"],input[type="email"]{width: 90% !important;}
+                            .cd,.ud,.des{
+                                display:none;
+                                width: 0px !important;
+                                height:0px !important;
+                            }
+                            }
+                            .col-md-4{
+                                background: #efefef;
+                          border-bottom: 1px solid #aaa;
+                                    border-right: thin solid #aaa;
+                                    border-bottom-right-radius: 10px; }
+                            
