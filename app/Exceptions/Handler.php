@@ -26,11 +26,11 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
-        return parent::report($e);
+        //return parent::report($e);
 
-        //return redirect('/oops');
+        return redirect('/oops');
      
-        exit;
+        //exit;
     }
 
     /**
@@ -42,9 +42,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {   //$e="test";
-        return parent::render($request, $e);
+        //return parent::render($request, $e);
 
-     //return redirect('/oops');
+    return redirect('/oops');
 
     exit;
     }
