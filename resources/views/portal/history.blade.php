@@ -12,18 +12,10 @@
                                                        Count <span class="trail"> <?php 
 
                             $userid=Auth::user()->id;
-                            $userid=1;
+                            //$userid=1;
 
                             echo $bbbu=DB::table('checkouts')->where('user','=',$userid)->count();
                             ?>
-
-
-
-
-
-                            
-
-
 
                         </span>
                         </h5>
