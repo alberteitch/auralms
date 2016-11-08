@@ -33,7 +33,7 @@
                           <tr><td class="bbut" colspan="2">
                            <a href="{{ URL::Asset('books')}}">
                            <button type="button" class="btn  btn-info"><< Back to Books</button></a>
-                           <button type="button" class="btn  btn-primary">View Report</button>
+                           <!--<button type="button" class="btn  btn-primary">View Report</button>-->
                            <a href="./{{$books->id}}/edit"><button type="button" class="btn  btn-warning">Edit</button></a>
                            {!!Form::submit('Delete',array('class'=>'btn  btn-danger .delete_btn'))!!}
                            </td></tr>

@@ -54,7 +54,7 @@
                            <tr><td class="bbut" colspan="2">
                            <a href="{{ URL::Asset('users')}}">
                            <button type="button" class="btn  btn-info"><< Back to {{$loc}}</button></a>
-                           <button type="button" class="btn  btn-primary">View Report</button>
+                           <!--<button type="button" class="btn  btn-primary">View Report</button>-->
                            <a href="./{{$users->id}}/edit"> <button type="button" class="btn  btn-warning">Edit</button></a>
                            <button type="button" class="btn  btn-danger" >Delete</button>
                            <a href="{{ URL::Asset('users/passgen')}}/{{$users->id}}"><button type="button" class="btn  btn-default" >Reset Password</button></a>
