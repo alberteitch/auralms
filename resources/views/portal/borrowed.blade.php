@@ -12,20 +12,13 @@
                                                        Borrowed <span class="trail"> <?php 
 
                             $userid=Auth::user()->id;
-
-                            echo $bbbu=DB::table('checkouts')->where('user','=',$userid)->where('toggle','=',false)->count();
-                            ?>
-                            of 
-
-
-
-
-                            <?php
-                            $date1=date_create(DB::table('users')->where('id','=',$userid)->pluck('dob'));
+                            $isadmin=Auth::user()->admin;
+                            $date1=date_create(DB::table('users')->where('id','=',1)->pluck('dob'));
                             $date2=date_create(date("Y-m-d "));
                             $diff=date_diff($date1,$date2);
                              $diffs = $diff->format("%y");
                              //echo $diffs.' years';
+
                             if($diffs>12){
                                 $blimit=6;
                             
@@ -34,12 +27,20 @@
                                 
                             }
 
-                            echo $blimit;
+                            if($isadmin){
+                                echo $bbbu=DB::table('checkouts')->where('toggle','=',false)->count();
 
+                            }else{
+                                echo $bbbu=DB::table('checkouts')->where('user','=',$userid)->where('toggle','=',false)->count();
+                                echo " of ";
+                                echo $blimit;}
+                            ?>
                             
 
-                            ?>
 
+
+
+                            
 
 
                         </span>

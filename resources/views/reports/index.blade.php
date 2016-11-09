@@ -21,6 +21,7 @@
 
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
+
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="row">
@@ -28,12 +29,12 @@
                                         <i class="bitems glyphicon glyphicon-star"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
-                                        <div>New Books</div>
+                                        <div class="huge">Book Balances</div>
+                                        <div></div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{URL::Asset('search/all')}}">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -52,12 +53,12 @@
                                         <i class="bitems glyphicon glyphicon-flag"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Overdue Books</div>
+                                        <div class="huge">Books on Loan</div>
+                                        <div></div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{URL::Asset('borrow')}}">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -69,7 +70,7 @@
                 </div>
                 <!-- /.row -->
 
-                <div class="row">
+               <!-- <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -80,5 +81,5 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 @stop

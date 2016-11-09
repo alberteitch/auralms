@@ -160,9 +160,14 @@ class Checkouts extends Controller
         //
 
         $maxpage=7;
-     $borrows=DB::table('checkouts')->where('user','=',Auth::user()->id)->where('toggle','=',false)->paginate($maxpage);
-     $count=DB::table('checkouts')->where('user','=',Auth::user()->id)->where('toggle','=',false)->count();
-
+        $isadmin=Auth::user()->admin;
+        if($isadmin){
+                $borrows=DB::table('checkouts')->where('toggle','=',false)->paginate($maxpage);
+                $count=DB::table('checkouts')->where('toggle','=',false)->count();     
+        }else{
+                $borrows=DB::table('checkouts')->where('user','=',Auth::user()->id)->where('toggle','=',false)->paginate($maxpage);
+                $count=DB::table('checkouts')->where('user','=',Auth::user()->id)->where('toggle','=',false)->count();
+        }
         $data=array(
         'borrowed' => $borrows,
         'count' => $count

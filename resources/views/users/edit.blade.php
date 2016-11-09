@@ -40,7 +40,8 @@
                            <tr class="odd"><td class="listlbl">Zip</td><td>: {!!Form::text('zip',null, array('placeholder' => 'Enter zip here...','min' => '0', 'max' => '100','class' => 'searchbox','style'=>'font-size:18px'))!!}</td></tr>
                             <tr><td class="listlbl">Is Administrator</td><td>: {!! Form::select('admin', ['0'=>'false', '1'=>'true'],'in',['class' => 'searchbox','style'=>'']) !!}</td></tr>
                             <tr class="odd"><td class="listlbl">Date of birth</td><td>:  {!!Form::date('dob',null, array('placeholder' => 'Enter dob here...','min' => '0', 'max' => '100','class' => 'searchbox','style'=>'font-size:18px'))!!}</td></tr>
-                           <tr><td class="bbut" colspan="2">
+                           <tr ><td class="listlbl">Penalty($)</td><td>: {!!Form::text('dues',null, array('placeholder' => '00','min' => '0', 'max' => '100','class' => 'searchbox','style'=>'font-size:18px'))!!}</td></tr>
+                          <tr><td class="bbut" colspan="2">
                            
                            <button type="button" class="btn  btn-info cancel_btn">Cancel</button>
               

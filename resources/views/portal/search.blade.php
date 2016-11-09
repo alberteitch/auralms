@@ -11,21 +11,14 @@
                         </h2>                     <h5 class="page-header" style="float:right;border:none;bottom:0px;margin:0px -15px;background:#ccc;color:#333;padding:5px;"> 
                                                        Borrowed <span class="trail"> <?php 
 
-                            $userid=Auth::user()->id;
-
-                            echo $bbbu=DB::table('checkouts')->where('user','=',$userid)->where('toggle','=',false)->count();
-                            ?>
-                            of 
-
-
-
-
-                            <?php
-                            $date1=date_create(DB::table('users')->where('id','=',$userid)->pluck('dob'));
+                          $userid=Auth::user()->id;
+                            $isadmin=Auth::user()->admin;
+                            $date1=date_create(DB::table('users')->where('id','=',1)->pluck('dob'));
                             $date2=date_create(date("Y-m-d "));
                             $diff=date_diff($date1,$date2);
                              $diffs = $diff->format("%y");
                              //echo $diffs.' years';
+
                             if($diffs>12){
                                 $blimit=6;
                             
@@ -34,11 +27,16 @@
                                 
                             }
 
-                            echo $blimit;
+                            if($isadmin){
+                                echo $bbbu=DB::table('checkouts')->where('toggle','=',false)->count();
 
+                            }else{
+                                echo $bbbu=DB::table('checkouts')->where('user','=',$userid)->where('toggle','=',false)->count();
+                                echo " of ";
+                                echo $blimit;}
+                            ?>
                             
 
-                            ?>
 
 
 
@@ -127,7 +125,10 @@
 
                                          $bco=DB::table('checkouts')->where('book','=',$book->id)->where('toggle','=',false)->count(); 
                                         $btqty=$book->quantities;
+                                    
+                                    if (!$isadmin){
                                     if($bbbu<$blimit) { 
+
                                         if($bco<$btqty){
 
 
@@ -137,10 +138,30 @@
                                     <a href="{{ URL::Asset('get')}}/{{$book->id}}">{!!Form::button('Borrow 1',array('class'=>'btn btn-xs btn-primary'))!!}</a>
 
                                      <?} else {?>
+
                                      <span class="btn_plc">None available!<span>
-                                     <?}}else{ ?>
-                                <span class="btn_plc">Limit reached!<span>
-                                    <? } ?>
+                                     
+                                     <?}
+
+                                    }else{ 
+
+                                        ?>
+                                     <span class="btn_plc">Limit reached!<span>
+                                   
+                                    <? }}else{
+                                        if($bco<$btqty){
+
+
+
+                                        ?>
+
+                                    <a href="{{ URL::Asset('get')}}/{{$book->id}}">{!!Form::button('Borrow 1',array('class'=>'btn btn-xs btn-primary'))!!}</a>
+
+                                     <?} else {?>
+
+                                     <span class="btn_plc">None available!<span>
+                                     
+                                     <?}}?>
                                     
                                     
                                      <!--    {!!Form::number('name', '1',['min'=>'1','max'=>'500','size'=>'3','style'=>'width:50px;margin-left:5px;border-radius:5px;border:thin solid #aaa']);!!}

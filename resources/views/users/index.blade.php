@@ -85,6 +85,9 @@
                                          Email
                                     </td>
                                     <td>
+                                         Penalties
+                                    </td>
+                                    <td>
                                          Is Admin
                                     </td>
 
@@ -115,6 +118,9 @@
                                     </td>
                                     <td>
                                          {{$user->email}}
+                                    </td>
+                                    <td>
+                                         $ {{$user->dues}}
                                     </td>
                                     <td>
                                          {{$user->admin}}

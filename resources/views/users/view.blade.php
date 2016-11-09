@@ -49,9 +49,11 @@
                              echo $diffs.' years';
                             if($diffs>12){echo " |&nbsp;Regular Account";}else{echo "|&nbsp;Regular Account";}
                            ?></td></tr>
-                           <tr><td class="listlbl">Create Date</td><td>: {{$users->created_at}}</td></tr>
-                           <tr  class="odd"><td class="listlbl">Updated Date</td><td>: {{$users->updated_at}}</td></tr>
-                           <tr><td class="bbut" colspan="2">
+
+                           <tr><td class="listlbl">Penalty($)</td><td>: {{$users->dues}}</td></tr><tr class="odd"><td class="listlbl">Contact No.</td><td>: {{$users->contact}}</td></tr>
+                           <tr class="odd"><td class="listlbl">Create Date</td><td>: {{$users->created_at}}</td></tr>
+                           <tr><td class="listlbl">Updated Date</td><td>: {{$users->updated_at}}</td></tr>
+                           <tr  class="odd"><td class="bbut" colspan="2">
                            <a href="{{ URL::Asset('users')}}">
                            <button type="button" class="btn  btn-info"><< Back to {{$loc}}</button></a>
                            <!--<button type="button" class="btn  btn-primary">View Report</button>-->

@@ -222,8 +222,13 @@ h2{margin:0px!important;}
 
   <body>
   <?php $userid=Auth::user()->id;
+        $isadmin=Auth::user()->admin;
+        if($isadmin){
+          $bbbu=DB::table('checkouts')->where('toggle','=',false)->count();
+        }else{
+          $bbbu=DB::table('checkouts')->where('user','=',$userid)->where('toggle','=',false)->count();
+        }
 
-$bbbu=DB::table('checkouts')->where('user','=',$userid)->where('toggle','=',false)->count()
   ?>
     <div class="row" style="background:#624871 !important">
 <div class="container" >
