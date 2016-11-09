@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User as mUsers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 

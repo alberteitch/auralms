@@ -32,8 +32,11 @@ class Checkouts extends Controller
     }
     public function historyall(Request $request)
     {
-      $id=Auth::user()->id;
-    $maxpage=10;
+    $id=Auth::user()->id;
+    $isadmin=Auth::user()->admin;
+    if($isadmin){$maxpage=30;}else{$maxpage=10;}
+    
+
      $borrows=mCheckouts::orderby('id','DESC')->where('user','=',$id)->paginate($maxpage);
      $count=mCheckouts::orderby('id','DESC')->where('user','=',$id)->count();
         $data=array(
@@ -159,12 +162,15 @@ class Checkouts extends Controller
     {
         //
 
-        $maxpage=7;
+        
         $isadmin=Auth::user()->admin;
+
         if($isadmin){
+                $maxpage=30;
                 $borrows=DB::table('checkouts')->where('toggle','=',false)->paginate($maxpage);
                 $count=DB::table('checkouts')->where('toggle','=',false)->count();     
-        }else{
+        }else{  
+                $maxpage=7;
                 $borrows=DB::table('checkouts')->where('user','=',Auth::user()->id)->where('toggle','=',false)->paginate($maxpage);
                 $count=DB::table('checkouts')->where('user','=',Auth::user()->id)->where('toggle','=',false)->count();
         }

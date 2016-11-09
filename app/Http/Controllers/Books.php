@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\book as mBook;
 use Illuminate\Http\Request;
-
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -29,7 +29,8 @@ class Books extends Controller
 
     public function search(Request $request,$key,$str)
     {
-    $maxpage=7;
+    $isadmin=Auth::user()->admin;
+    if($isadmin){$maxpage=30;}else{$maxpage=10;}
      $books=mBook::where($key,'LIKE', '%'.$str.'%')->paginate($maxpage);
      $count=mBook::where($key,'LIKE', '%'.$str.'%')->count();
         $data=array(
@@ -49,7 +50,8 @@ class Books extends Controller
 
     public function searchbm(Request $request,$key,$str)
     {
-    $maxpage=7;
+ $isadmin=Auth::user()->admin;
+    if($isadmin){$maxpage=30;}else{$maxpage=10;}
      $books=mBook::where($key,'LIKE', '%'.$str.'%')->paginate($maxpage);
      $count=mBook::where($key,'LIKE', '%'.$str.'%')->count();
         $data=array(
@@ -61,7 +63,8 @@ class Books extends Controller
 
     public function searchall(Request $request)
     {
-    $maxpage=7;
+   $isadmin=Auth::user()->admin;
+    if($isadmin){$maxpage=30;}else{$maxpage=10;}
      $books=mBook::orderby('id','DESC')->paginate($maxpage);
      $count=mBook::orderby('id','DESC')->count();
         $data=array(
@@ -77,7 +80,8 @@ class Books extends Controller
 
 public function asearch(Request $request,$key,$str)
     {
-    $maxpage=7;
+ $isadmin=Auth::user()->admin;
+    if($isadmin){$maxpage=30;}else{$maxpage=10;}
      $books=mBook::where($key,'LIKE', '%'.$str.'%')->paginate($maxpage);
      $count=mBook::where($key,'LIKE', '%'.$str.'%')->count();
         $data=array(
@@ -97,7 +101,8 @@ public function asearch(Request $request,$key,$str)
 
     public function asearchbm(Request $request,$key,$str)
     {
-    $maxpage=7;
+ $isadmin=Auth::user()->admin;
+    if($isadmin){$maxpage=30;}else{$maxpage=10;}
      $books=mBook::where($key,'LIKE', '%'.$str.'%')->paginate($maxpage);
      $count=mBook::where($key,'LIKE', '%'.$str.'%')->count();
         $data=array(
@@ -109,7 +114,8 @@ public function asearch(Request $request,$key,$str)
 
     public function asearchall(Request $request)
     {
-    $maxpage=7;
+   $isadmin=Auth::user()->admin;
+    if($isadmin){$maxpage=30;}else{$maxpage=10;}
      $books=mBook::orderby('id','DESC')->paginate($maxpage);
      $count=mBook::orderby('id','DESC')->count();
         $data=array(
